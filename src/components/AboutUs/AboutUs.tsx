@@ -4,8 +4,9 @@ import { motion, useInView } from 'framer-motion';
 
 // Import images for the About section
 import aboutImage from '../../assets/images/portfolio/IMG_3316.jpg';
-import lightingImage from '../../assets/images/portfolio/IMG_2434.jpg';
-import visualImage from '../../assets/images/portfolio/IMG_2563.jpg';
+// Commented out unused imports
+// import lightingImage from '../../assets/images/portfolio/IMG_2434.jpg';
+// import visualImage from '../../assets/images/portfolio/IMG_2563.jpg';
 
 const AboutSection = styled.section`
   position: relative;
@@ -173,7 +174,6 @@ const CountUp: React.FC<CountUpProps> = ({
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const decimals = 0;
   
   useEffect(() => {
     let startTimestamp: number;

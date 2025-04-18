@@ -42,9 +42,10 @@ const LogoImage = styled.img`
   margin-bottom: 1rem;
 `;
 
-const LogoText = styled.span`
-  display: none;
-`;
+// Commented out unused styled component
+// const LogoText = styled.span`
+//   display: none;
+// `;
 
 const FooterDescription = styled.p`
   color: #aaa;

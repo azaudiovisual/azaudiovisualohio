@@ -139,22 +139,23 @@ const PrimaryButton = styled(motion.button)`
   }
 `;
 
-const SecondaryButton = styled(motion.button)`
-  background: transparent;
-  color: var(--white);
-  border: 2px solid var(--blue);
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: var(--blue);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-`;
+// Commented out unused styled component
+// const SecondaryButton = styled(motion.button)`
+//   background: transparent;
+//   color: var(--white);
+//   border: 2px solid var(--blue);
+//   padding: 1rem 2rem;
+//   border-radius: 4px;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+//   
+//   &:hover {
+//     background: var(--blue);
+//     transform: translateY(-3px);
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+//   }
+// `;
 
 const Hero: React.FC = () => {
   return (

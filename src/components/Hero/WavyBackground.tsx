@@ -52,17 +52,6 @@ export const WavyBackground = ({
   const animationIdRef = useRef<number | null>(null);
   const [isSafari, setIsSafari] = useState(false);
   
-  const getSpeed = () => {
-    switch (speed) {
-      case "slow":
-        return 0.001;
-      case "fast":
-        return 0.002;
-      default:
-        return 0.001;
-    }
-  };
-
   const drawWave = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, nt: number) => {
     const waveColors = colors ?? [
       "#38bdf8",
@@ -84,6 +73,17 @@ export const WavyBackground = ({
       ctx.closePath();
     }
   }, [colors, noise, waveWidth]);
+
+  const getSpeed = useCallback(() => {
+    switch (speed) {
+      case "slow":
+        return 0.001;
+      case "fast":
+        return 0.002;
+      default:
+        return 0.001;
+    }
+  }, [speed]);
 
   const render = useCallback(() => {
     const canvas = canvasRef.current;

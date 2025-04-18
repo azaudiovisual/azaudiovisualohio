@@ -55,9 +55,10 @@ const LogoImage = styled.img`
   }
 `;
 
-const LogoText = styled.span`
-  display: none;
-`;
+// Commented out unused styled component
+// const LogoText = styled.span`
+//   display: none;
+// `;
 
 const NavLinks = styled.div`
   display: flex;
