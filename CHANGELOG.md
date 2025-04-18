@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2025-04-17
+
+### Added
+- Deployed website to GitHub and Netlify
+- Created GitHub repository at https://github.com/azaudiovisual/azaudiovisualohio.git
+- Set up Netlify deployment from GitHub repository
+- Added .env.production file with CI=false to prevent ESLint warnings from causing build failures
+
+### Fixed
+- Resolved ESLint warnings that were causing build failures in CI environment:
+  - Fixed React hooks dependency issue in WavyBackground.tsx by wrapping getSpeed function in useCallback
+  - Removed unused variables and imports in AboutUs.tsx
+  - Commented out unused styled components in Footer.tsx, Navbar.tsx, and Hero.tsx
+
 ## [0.7.7] - 2025-03-28
 
 ### Added
