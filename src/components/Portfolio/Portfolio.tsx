@@ -189,8 +189,8 @@ const Portfolio: React.FC = () => {
   return (
     <PortfolioSection id="portfolio">
       <PortfolioContainer>
-        <SectionTitle>Our Portfolio</SectionTitle>
-        <SectionSubtitle>Explore our work across various industries and events</SectionSubtitle>
+        <SectionTitle>Portfolio</SectionTitle>
+        <SectionSubtitle>Check out some of our past work!</SectionSubtitle>
         
         <ProjectGrid>
           {portfolioItems.map((item, index) => (
