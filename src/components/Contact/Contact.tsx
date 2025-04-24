@@ -52,11 +52,7 @@ const ContactInfo = styled(motion.div)`
   flex-direction: column;
 `;
 
-const ContactHeading = styled.h3`
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--white);
-`;
+// Removed unused ContactHeading component
 
 const ContactText = styled.p`
   margin-bottom: 2rem;
