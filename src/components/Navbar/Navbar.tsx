@@ -15,16 +15,19 @@ const NavbarContainer = styled(motion.nav)<NavbarContainerProps>`
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: ${({ $scrolled }) => ($scrolled ? '0.8rem 0' : '1.5rem 0')};
-  background: ${({ $scrolled }) => 
-    $scrolled 
-      ? 'rgba(0, 0, 0, 0.9)' 
-      : 'linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent)'
-  };
-  backdrop-filter: ${({ $scrolled }) => ($scrolled ? 'blur(10px)' : 'none')};
+  padding: ${({ $scrolled }) => ($scrolled ? '0.5rem 0' : '0.8rem 0')};
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  height: auto;
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 0;
+  }
   
   @media screen and (max-width: 768px) and (orientation: landscape) {
+    position: absolute; /* Change to absolute in landscape to prevent overlap */
     padding: 0.3rem 0;
     /* Add extra safe area for iOS devices */
     padding-top: env(safe-area-inset-top, 0.3rem);
@@ -47,11 +50,17 @@ const Logo = styled.div`
 `;
 
 const LogoImage = styled.img`
-  height: 60px;
+  height: 50px;
   width: auto;
+  margin-top: 5px;
+  
+  @media (max-width: 768px) {
+    height: 40px;
+  }
   
   @media screen and (max-width: 768px) and (orientation: landscape) {
-    height: 35px;
+    height: 30px;
+    margin-top: 2px;
   }
 `;
 

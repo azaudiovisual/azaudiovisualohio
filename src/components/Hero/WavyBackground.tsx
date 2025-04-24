@@ -9,6 +9,12 @@ const Container = styled.div<{ containerClassName?: string }>`
   align-items: center;
   justify-content: center;
   ${props => props.containerClassName}
+  
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    height: auto;
+    min-height: 120vh;
+    padding-top: 60px;
+  }
 `;
 
 const CanvasElement = styled.canvas<{ isSafari: boolean, blur: number }>`
@@ -21,7 +27,12 @@ const CanvasElement = styled.canvas<{ isSafari: boolean, blur: number }>`
 const ContentWrapper = styled.div<{ className?: string }>`
   position: relative;
   z-index: 10;
+  width: 100%;
   ${props => props.className}
+  
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    padding-top: 50px;
+  }
 `;
 
 export const WavyBackground = ({

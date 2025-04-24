@@ -6,29 +6,11 @@ import { EMAILJS_CONFIG } from '../../config/emailjs';
 
 const ContactSection = styled.section`
   position: relative;
-  background-color: #050505;
+  background-color: #000000;
   overflow: hidden;
 `;
 
-const BackgroundElement = styled.div`
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, rgba(181, 0, 255, 0) 70%);
-  filter: blur(30px);
-`;
-
-const TopLeftElement = styled(BackgroundElement)`
-  top: -100px;
-  left: -100px;
-`;
-
-const BottomRightElement = styled(BackgroundElement)`
-  bottom: -100px;
-  right: -100px;
-  background: radial-gradient(circle, rgba(181, 0, 255, 0.1) 0%, rgba(0, 163, 255, 0) 70%);
-`;
+// Background elements removed as requested
 
 const ContactContainer = styled.div`
   width: 90%;
@@ -428,9 +410,6 @@ const Contact: React.FC = () => {
   
   return (
     <ContactSection id="contact">
-      <TopLeftElement />
-      <BottomRightElement />
-      
       <ContactContainer>
         <SectionTitle
           initial={{ opacity: 0, y: 30 }}
@@ -448,7 +427,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <ContactHeading>Get In Touch</ContactHeading>
+
             <ContactText>
               Fill out the form to get in touch with us. We can't wait to help bring your vision to life!
             </ContactText>
@@ -560,9 +539,6 @@ const Contact: React.FC = () => {
                 <option value="Live Event Production">Live Event Production</option>
                 <option value="Event Planning & Coordination">Event Planning & Coordination</option>
                 <option value="Consulting & Integration">Consulting & Integration</option>
-                <option value="Audio Engineering">Audio Engineering</option>
-                <option value="Video Production">Video Production</option>
-                <option value="Lighting Design">Lighting Design</option>
                 <option value="Other">Other (please specify in message)</option>
               </FormSelect>
               {formErrors.service && <ValidationError>{formErrors.service}</ValidationError>}

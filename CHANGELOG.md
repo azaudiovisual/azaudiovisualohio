@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2025-04-23
+
+### Changed
+- Modified the About Us section:
+  - Removed the sentence "From live event production to consulting and integration, we've got you covered from A to Z!" for more concise messaging
+  - Changed the numbers in counting elements to white color for better visibility
+  - Changed "Years of Experience" and "Feet of Cable Wrapped" text to blue
+  - Kept "Successful Events" and "Good Vibes" text in the original purple color
+- Modified the Contact section:
+  - Removed the "Get In Touch" heading for a cleaner look
+  - Simplified the Contact form service options by removing:
+    - Audio Engineering
+    - Video Production
+    - Lighting Design
+- Improved section backgrounds for a cleaner, more consistent look:
+  - Removed all decorative background elements (circles and gradients) from Services, Portfolio, and Contact sections
+  - Changed all section backgrounds to pure black for better consistency
+- Enhanced the Services section:
+  - Changed section heading from "Our Services" to "Services & Skills"
+  - Updated Live Event Production description to "Professional technical services for live events of any size"
+  - Added detailed list of roles in Live Event Production: FOH & Monitor Engineering, Lighting Direction, Camera Operation & Video Direction, RF Coordination & Deployment, Livestreaming & Recording, IT & Networking, and Playback
+  - Reordered service cards to place Consulting & Integration before Event Planning & Coordination
+  - Removed Audio Engineering, Video Production, and Lighting Design sections to focus on core services
+
 ## [1.0.0] - 2025-04-17
 
 ### Added

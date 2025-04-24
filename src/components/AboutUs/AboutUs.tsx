@@ -102,7 +102,7 @@ const StatItem = styled(motion.div)`
 const StatNumber = styled.h3`
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: var(--blue);
+  color: var(--white);
   text-shadow: 0 0 10px rgba(0, 163, 255, 0.4);
   
   @media (max-width: 768px) {
@@ -124,6 +124,11 @@ const StatTitle = styled.p`
   @media (max-width: 576px) {
     font-size: 0.9rem;
   }
+`;
+
+const BlueStatTitle = styled(StatTitle)`
+  color: var(--blue);
+  text-shadow: 0 0 8px rgba(0, 163, 255, 0.4);
 `;
 
 const AboutImageContainer = styled.div`
@@ -251,7 +256,7 @@ const AboutUs: React.FC = () => {
             viewport={{ once: true }}
           >
             <AboutParagraph variants={fadeInUp}>
-              <HighlightText>At A-Z Audiovisual</HighlightText>, our mission is to make sure you're seen and heard! We specialize in creating immersive spaces and memorable experiences that bring your vision to life. From live event production to consulting and integration, we've got you covered from A to Z!
+              <HighlightText>At A-Z Audiovisual</HighlightText>, our mission is to make sure you're seen and heard! We specialize in creating immersive spaces and memorable experiences that bring your vision to life.
             </AboutParagraph>
             
             <AboutParagraph variants={fadeInUp}>
@@ -270,7 +275,7 @@ const AboutUs: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <StatNumber><CountUp end={10} suffix="+" /></StatNumber>
-                <StatTitle>Years of Experience</StatTitle>
+                <BlueStatTitle>Years of Experience</BlueStatTitle>
               </StatItem>
               
               <StatItem
@@ -290,7 +295,7 @@ const AboutUs: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 <StatNumber><CountUp end={150000} suffix="+" formatter={(value) => value.toLocaleString()} /></StatNumber>
-                <StatTitle>Feet of Cable Wrapped</StatTitle>
+                <BlueStatTitle>Feet of Cable Wrapped</BlueStatTitle>
               </StatItem>
               
               <StatItem

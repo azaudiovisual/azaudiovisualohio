@@ -4,31 +4,11 @@ import { motion } from 'framer-motion';
 
 const ServicesSection = styled.section`
   position: relative;
-  background-color: #050505;
+  background-color: #000000;
   overflow: hidden;
 `;
 
-const BackgroundShape = styled.div`
-  position: absolute;
-  top: -300px;
-  right: -300px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, rgba(181, 0, 255, 0.05) 100%);
-  z-index: 0;
-`;
-
-const BackgroundShape2 = styled.div`
-  position: absolute;
-  bottom: -200px;
-  left: -200px;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(181, 0, 255, 0.05) 0%, rgba(0, 163, 255, 0.05) 100%);
-  z-index: 0;
-`;
+// Background shapes removed as requested
 
 const ServicesContainer = styled.div`
   width: 90%;
@@ -174,27 +154,15 @@ const Services: React.FC = () => {
         </svg>
       ),
       title: "Live Event Production",
-      description: "Comprehensive audio, video, lighting, and livestreaming solutions for events of any size.",
+      description: "Professional technical services for live events of any size.",
       features: [
-        "Professional audio systems and mixing",
-        "Dynamic lighting design and programming",
-        "High-definition video and LED displays",
-        "Live event broadcasting and streaming"
-      ]
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="#FFFFFF">
-          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-        </svg>
-      ),
-      title: "Event Planning & Coordination",
-      description: "End-to-end planning and technical coordination services for seamless event execution.",
-      features: [
-        "Venue analysis and selection",
-        "Technical coordination",
-        "Timeline development",
-        "On-site logistics"
+        "FOH & Monitor Engineering",
+        "Lighting Direction",
+        "Camera Operation & Video Direction",
+        "RF Coordination & Deployment",
+        "Livestreaming & Recording",
+        "IT & Networking",
+        "Playback"
       ]
     },
     {
@@ -217,47 +185,16 @@ const Services: React.FC = () => {
     {
       icon: (
         <svg viewBox="0 0 24 24" fill="#FFFFFF">
-          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
         </svg>
       ),
-      title: "Audio Engineering",
-      description: "Professional audio engineering services for live events, studio recordings, and broadcasts with precision and clarity.",
+      title: "Event Planning & Coordination",
+      description: "End-to-end planning and technical coordination services for seamless event execution.",
       features: [
-        "Front of House (FOH) mixing",
-        "Monitor engineering",
-        "RF coordination",
-        "Multitrack recording",
-        "Mixing & mastering"
-      ]
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="#FFFFFF">
-          <path d="M18 7c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-3.333L22 17V7l-4 3.333V7zm-1.998 10H4V7h12l.001 10z" />
-        </svg>
-      ),
-      title: "Video Production",
-      description: "High-definition video solutions for presentations, performances, and live streaming.",
-      features: [
-        "LED video walls",
-        "Projection mapping",
-        "Multi-camera systems",
-        "Live switching"
-      ]
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="#FFFFFF">
-          <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
-        </svg>
-      ),
-      title: "Lighting Design",
-      description: "Creative lighting solutions that enhance atmosphere and create unforgettable visual experiences.",
-      features: [
-        "Moving head fixtures",
-        "LED wash lighting",
-        "Atmospheric effects",
-        "Stage and architectural lighting"
+        "Venue analysis and selection",
+        "Technical coordination",
+        "Timeline development",
+        "On-site logistics"
       ]
     }
   ];
@@ -276,9 +213,6 @@ const Services: React.FC = () => {
   
   return (
     <ServicesSection id="services">
-      <BackgroundShape />
-      <BackgroundShape2 />
-      
       <ServicesContainer>
         <SectionTitle
           initial={{ opacity: 0, y: 30 }}
@@ -286,7 +220,7 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Our Services
+          Services & Skills
         </SectionTitle>
         
         <ServicesGrid>

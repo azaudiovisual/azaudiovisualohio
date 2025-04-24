@@ -18,19 +18,11 @@ import img3319 from '../../assets/images/portfolio/IMG_3319.jpg';
 
 const PortfolioSection = styled.section`
   position: relative;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: #000000;
   overflow: hidden;
 `;
 
-const GradientOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 163, 255, 0.05) 0%, rgba(181, 0, 255, 0.05) 100%);
-  z-index: 0;
-`;
+// Gradient overlay removed as requested
 
 const PortfolioContainer = styled.div`
   width: 90%;
@@ -196,8 +188,6 @@ const portfolioItems = [
 const Portfolio: React.FC = () => {
   return (
     <PortfolioSection id="portfolio">
-      <GradientOverlay />
-      
       <PortfolioContainer>
         <SectionTitle>Our Portfolio</SectionTitle>
         <SectionSubtitle>Explore our work across various industries and events</SectionSubtitle>

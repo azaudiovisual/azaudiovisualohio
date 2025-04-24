@@ -12,13 +12,13 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: 50px;
+  padding-top: 0; /* Remove padding as we'll handle spacing in the WavyBackground */
   
   @media screen and (max-width: 768px) and (orientation: landscape) {
     height: auto;
-    min-height: 100vh;
-    padding-top: 60px;
-    padding-bottom: 20px;
+    min-height: 120vh; /* Increase min-height to provide more space */
+    padding-bottom: 40px;
+    padding-top: 20px;
   }
 `;
 
@@ -31,11 +31,20 @@ const HeroContent = styled(motion.div)`
   justify-content: center;
   text-align: center;
   padding: 0 2rem;
-  margin-top: -80px;
+  width: 100%;
+  max-width: 100vw;
+  margin-top: 0; /* Remove negative margin */
+  padding-top: 80px; /* Add padding to account for navbar height */
+  
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+    padding-top: 100px; /* Increase padding for mobile */
+  }
   
   @media screen and (max-width: 768px) and (orientation: landscape) {
-    margin-top: 10px;
     padding: 0.5rem;
+    padding-top: 60px; /* Reduced padding since navbar is now absolute in landscape */
+    margin-top: 60px; /* Add margin to push content down */
   }
 `;
 
@@ -77,17 +86,20 @@ const HeroSubtitle = styled(motion.p)`
   margin-bottom: 2rem;
   max-width: 800px;
   text-align: center;
-  white-space: nowrap;
   color: var(--white);
   opacity: 0.8;
+  padding: 0 10px;
   
   @media (max-width: 768px) {
     font-size: 1.2rem;
+    white-space: normal; /* Allow text to wrap on mobile */
+    width: 100%;
   }
   
   @media screen and (max-width: 768px) and (orientation: landscape) {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+    white-space: normal; /* Allow text to wrap in landscape */
   }
 `;
 
