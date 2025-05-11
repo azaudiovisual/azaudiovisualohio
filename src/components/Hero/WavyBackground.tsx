@@ -17,11 +17,11 @@ const Container = styled.div<{ containerClassName?: string }>`
   }
 `;
 
-const CanvasElement = styled.canvas<{ isSafari: boolean, blur: number }>`
+const CanvasElement = styled.canvas<{ useCSS: boolean, blur: number }>`
   position: absolute;
   inset: 0;
   z-index: 0;
-  ${props => props.isSafari ? `filter: blur(${props.blur}px);` : ''}
+  ${props => props.useCSS ? `filter: blur(${props.blur}px);` : ''}
 `;
 
 const ContentWrapper = styled.div<{ className?: string }>`
@@ -61,7 +61,7 @@ export const WavyBackground = ({
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationIdRef = useRef<number | null>(null);
-  const [isSafari, setIsSafari] = useState(false);
+  const [useCSS, setUseCSS] = useState(false);
   
   const drawWave = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, nt: number) => {
     const waveColors = colors ?? [
@@ -128,12 +128,18 @@ export const WavyBackground = ({
     
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
+    // Only apply canvas filter if we're not using CSS filter
+    if (!useCSS) {
+      ctx.filter = `blur(${blur}px)`;
+    }
     
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Only apply canvas filter if we're not using CSS filter
+    if (!useCSS) {
       ctx.filter = `blur(${blur}px)`;
+    }
     };
     
     window.addEventListener('resize', handleResize);
@@ -146,7 +152,7 @@ export const WavyBackground = ({
         cancelAnimationFrame(animationIdRef.current);
       }
     };
-  }, [blur, render]);
+  }, [blur, render, useCSS]);
 
   useEffect(() => {
     const cleanup = init();
@@ -154,12 +160,16 @@ export const WavyBackground = ({
   }, [init]);
 
   useEffect(() => {
-    // Support for Safari
-    setIsSafari(
-      typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
-    );
+    // Detect browsers that might need CSS-based blur instead of canvas filter
+    // This includes Safari, Instagram's in-app browser, and other WebViews
+    const ua = navigator.userAgent.toLowerCase();
+    const isSafari = ua.includes("safari") && !ua.includes("chrome");
+    const isInstagramBrowser = ua.includes("instagram");
+    const isFacebookBrowser = ua.includes("fbios") || ua.includes("fb_iab");
+    const isWebView = ua.includes("wv") || ua.includes("webview");
+    
+    // Use CSS blur for problematic browsers
+    setUseCSS(isSafari || isInstagramBrowser || isFacebookBrowser || isWebView);
   }, []);
 
   return (
@@ -167,7 +177,7 @@ export const WavyBackground = ({
       <CanvasElement
         ref={canvasRef}
         id="canvas"
-        isSafari={isSafari}
+        useCSS={useCSS}
         blur={blur}
       />
       <ContentWrapper className={className} {...props}>
