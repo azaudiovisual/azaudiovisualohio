@@ -2,11 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 
-// Import images for the About section
-import aboutImage from '../../assets/images/portfolio/IMG_3316.jpg';
-// Commented out unused imports
-// import lightingImage from '../../assets/images/portfolio/IMG_2434.jpg';
-// import visualImage from '../../assets/images/portfolio/IMG_2563.jpg';
+// Previously imported images have been removed
 
 const AboutSection = styled.section`
   position: relative;
@@ -38,15 +34,10 @@ const SectionTitle = styled(motion.h2)`
 `;
 
 const AboutContent = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
 `;
 
 const AboutText = styled.div`
@@ -54,6 +45,7 @@ const AboutText = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   max-width: 100%;
+  width: 100%;
 `;
 
 const AboutParagraph = styled(motion.p)`
@@ -131,36 +123,7 @@ const BlueStatTitle = styled(StatTitle)`
   text-shadow: 0 0 8px rgba(0, 163, 255, 0.4);
 `;
 
-const AboutImageContainer = styled.div`
-  width: 100%;
-  margin-top: 1rem;
-  z-index: 1;
-`;
-
-const ImageContainer = styled(motion.div)`
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 4/3;
-  background-color: #1a1a1a;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  
-  @media (max-width: 768px) {
-    aspect-ratio: 3/2;
-  }
-`;
-
-const AboutImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  
-  ${ImageContainer}:hover & {
-    transform: scale(1.05);
-  }
-`;
+// Image-related styled components have been removed
 
 // Counter component with animation
 interface CountUpProps {
@@ -248,6 +211,7 @@ const AboutUs: React.FC = () => {
         </SectionTitle>
         
         <AboutContent>
+          {/* Text Section */}
           <AboutText
             as={motion.div}
             variants={containerVariants}
@@ -266,60 +230,52 @@ const AboutUs: React.FC = () => {
             <AboutParagraph variants={fadeInUp}>
               Whether you're planning a live event, an integration, your system needs a tune-up, or just need a professional opinion, we've got you covered from A to Z. Let's bring your vision to life together!
             </AboutParagraph>
-            
-            <StatsContainer>
-              <StatItem
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <StatNumber><CountUp end={10} suffix="+" /></StatNumber>
-                <BlueStatTitle>Years of Experience</BlueStatTitle>
-              </StatItem>
-              
-              <StatItem
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <StatNumber><CountUp end={400} suffix="+" /></StatNumber>
-                <StatTitle>Successful Events</StatTitle>
-              </StatItem>
-              
-              <StatItem
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <StatNumber><CountUp end={150000} suffix="+" formatter={(value) => value.toLocaleString()} /></StatNumber>
-                <BlueStatTitle>Feet of Cable Wrapped</BlueStatTitle>
-              </StatItem>
-              
-              <StatItem
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <StatNumber><CountUp end={100} suffix="%" /></StatNumber>
-                <StatTitle>Good Vibes</StatTitle>
-              </StatItem>
-            </StatsContainer>
           </AboutText>
           
-          <AboutImageContainer>
-            <ImageContainer
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+          {/* Image section removed */}
+          
+          {/* Stats Section */}
+          <StatsContainer>
+            <StatItem
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <AboutImage src={aboutImage} alt="Audio Equipment Setup" />
-            </ImageContainer>
-          </AboutImageContainer>
+              <StatNumber><CountUp end={10} suffix="+" /></StatNumber>
+              <BlueStatTitle>Years of Experience</BlueStatTitle>
+            </StatItem>
+            
+            <StatItem
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <StatNumber><CountUp end={400} suffix="+" /></StatNumber>
+              <StatTitle>Successful Events</StatTitle>
+            </StatItem>
+            
+            <StatItem
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <StatNumber><CountUp end={150000} suffix="+" formatter={(value) => value.toLocaleString()} /></StatNumber>
+              <BlueStatTitle>Feet of Cable Wrapped</BlueStatTitle>
+            </StatItem>
+            
+            <StatItem
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <StatNumber><CountUp end={100} suffix="%" /></StatNumber>
+              <StatTitle>Good Vibes</StatTitle>
+            </StatItem>
+          </StatsContainer>
         </AboutContent>
       </AboutContainer>
     </AboutSection>
