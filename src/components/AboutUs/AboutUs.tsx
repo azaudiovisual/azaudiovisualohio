@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 
-// Previously imported images have been removed
+// Import image for the About section
+import aboutImage from '../../assets/images/portfolio/IMG_3316.jpg';
 
 const AboutSection = styled.section`
   position: relative;
@@ -123,7 +124,33 @@ const BlueStatTitle = styled(StatTitle)`
   text-shadow: 0 0 8px rgba(0, 163, 255, 0.4);
 `;
 
-// Image-related styled components have been removed
+const AboutImageContainer = styled.div`
+  width: 100%;
+  max-width: 800px;
+  z-index: 1;
+  margin: 2rem auto 0;
+`;
+
+const ImageContainer = styled(motion.div)`
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #1a1a1a;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+`;
+
+const AboutImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  
+  ${ImageContainer}:hover & {
+    transform: scale(1.05);
+  }
+`;
 
 // Counter component with animation
 interface CountUpProps {
@@ -232,8 +259,6 @@ const AboutUs: React.FC = () => {
             </AboutParagraph>
           </AboutText>
           
-          {/* Image section removed */}
-          
           {/* Stats Section */}
           <StatsContainer>
             <StatItem
@@ -276,6 +301,18 @@ const AboutUs: React.FC = () => {
               <StatTitle>Good Vibes</StatTitle>
             </StatItem>
           </StatsContainer>
+          
+          {/* Image Section - Added after stats */}
+          <AboutImageContainer>
+            <ImageContainer
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <AboutImage src={aboutImage} alt="Audio Equipment Setup" />
+            </ImageContainer>
+          </AboutImageContainer>
         </AboutContent>
       </AboutContainer>
     </AboutSection>
