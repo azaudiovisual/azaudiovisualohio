@@ -181,8 +181,8 @@ const Footer: React.FC = () => {
         
         <FooterNav>
           <FooterNavTitle>Contact Us</FooterNavTitle>
-          <FooterLink>azaudiovisualohio@gmail.com</FooterLink>
-          <FooterLink>(330)-419-4411</FooterLink>
+          <FooterLink as="a" href="mailto:azaudiovisualohio@gmail.com">azaudiovisualohio@gmail.com</FooterLink>
+          <FooterLink as="a" href="tel:+13304194411">(330)-419-4411</FooterLink>
           <FooterLink>Monday - Friday: 9 AM - 5 PM EST</FooterLink>
         </FooterNav>
       </FooterContent>
