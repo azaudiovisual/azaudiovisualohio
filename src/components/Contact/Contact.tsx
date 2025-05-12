@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../../config/emailjs';
+import { azAudiovisualContact, createVCardDownloadLink } from '../../utils/vcard';
 
 const ContactSection = styled.section`
   position: relative;
@@ -450,6 +451,34 @@ const Contact: React.FC = () => {
               <ContactInfoText>
                 <ContactInfoLabel>Email</ContactInfoLabel>
                 <ContactInfoValue as="a" href="mailto:azaudiovisualohio@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>azaudiovisualohio@gmail.com</ContactInfoValue>
+              </ContactInfoText>
+            </ContactInfoItem>
+            
+            <ContactInfoItem>
+              <ContactInfoIcon as="a" href="#" onClick={(e) => {
+                e.preventDefault();
+                const link = document.createElement('a');
+                link.href = createVCardDownloadLink(azAudiovisualContact);
+                link.download = 'AZ-Audiovisual-Contact.vcf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }} style={{ display: 'flex', color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>
+                <svg viewBox="0 0 24 24" fill="#FFFFFF">
+                  <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z" />
+                </svg>
+              </ContactInfoIcon>
+              <ContactInfoText>
+                <ContactInfoLabel>Save Contact</ContactInfoLabel>
+                <ContactInfoValue as="a" href="#" onClick={(e) => {
+                  e.preventDefault();
+                  const link = document.createElement('a');
+                  link.href = createVCardDownloadLink(azAudiovisualContact);
+                  link.download = 'AZ-Audiovisual-Contact.vcf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }} style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>Contact Card</ContactInfoValue>
               </ContactInfoText>
             </ContactInfoItem>
             
