@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import logoSvg from '../../assets/images/LOGO_AZAV (INV).svg';
-import { azAudiovisualContact, createVCardDownloadLink } from '../../utils/vcard';
 
 const FooterContainer = styled.footer`
   background-color: #000;
@@ -184,15 +183,6 @@ const Footer: React.FC = () => {
           <FooterNavTitle>Contact Us</FooterNavTitle>
           <FooterLink as="a" href="tel:+13304194411">(330)-419-4411</FooterLink>
           <FooterLink as="a" href="mailto:azaudiovisualohio@gmail.com">azaudiovisualohio@gmail.com</FooterLink>
-          <FooterLink as="a" href="#" onClick={(e) => {
-            e.preventDefault();
-            const link = document.createElement('a');
-            link.href = createVCardDownloadLink(azAudiovisualContact);
-            link.download = 'AZ-Audiovisual-Contact.vcf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }} style={{ cursor: 'pointer' }}>Contact Card</FooterLink>
           <FooterLink>Monday - Friday: 9 AM - 5 PM EST</FooterLink>
         </FooterNav>
       </FooterContent>
