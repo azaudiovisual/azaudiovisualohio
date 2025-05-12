@@ -1,3 +1,6 @@
+// Import the logo for the contact photo
+import logoSvg from '../assets/images/LOGO_AZAV (INV).svg';
+
 /**
  * Utility function to generate a vCard for contact information
  */
@@ -70,6 +73,28 @@ export const createVCardDownloadLink = (options: VCardOptions): string => {
   return URL.createObjectURL(blob);
 };
 
+
+
+/**
+ * Get the absolute URL for the logo
+ */
+const getLogoUrl = (): string => {
+  // For client-side usage, create a full URL to the logo
+  // This ensures the logo is accessible when the vCard is downloaded
+  const baseUrl = window.location.origin;
+  
+  // Use the imported SVG path and convert it to a full URL
+  // For SVG files in production build, they're usually hashed and placed in static/media
+  // We'll use a fallback to the deployed site's logo if needed
+  try {
+    // For development, we can use the imported path
+    return `${baseUrl}${logoSvg}`;
+  } catch (e) {
+    // Fallback to the deployed site's logo
+    return 'https://azaudiovisualohio.com/logo.svg';
+  }
+};
+
 /**
  * A-Z Audiovisual contact information
  */
@@ -79,5 +104,7 @@ export const azAudiovisualContact: VCardOptions = {
   email: 'azaudiovisualohio@gmail.com',
   phone: '+13304194411',
   website: 'https://azaudiovisualohio.com',
+  // Add the logo as the photo URL (will be set when the vCard is generated)
+  photoUrl: typeof window !== 'undefined' ? getLogoUrl() : undefined,
   note: 'Professional audiovisual services for events and installations.'
 };
