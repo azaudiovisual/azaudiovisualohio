@@ -162,7 +162,8 @@ const Services: React.FC = () => {
         "RF Coordination & Deployment",
         "Livestreaming & Recording",
         "IT & Networking",
-        "Playback"
+        "Playback",
+        "Touring"
       ]
     },
     {
