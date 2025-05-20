@@ -198,7 +198,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Making sure you're seen and heard
+            Making sure yo momma's seen and heard
           </HeroSubtitle>
           <HeroButtons
             initial={{ opacity: 0, y: 30 }}
